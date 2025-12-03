@@ -3,13 +3,13 @@
 interface ReturnsTableProps {
     data: {
         [year: string]: {
-            [month: string]: number; // month is 1-12, plus 'YTD'
+            [month: string]: number;
         };
     };
 }
 
 const ReturnsTable: React.FC<ReturnsTableProps> = ({ data }) => {
-    const years = Object.keys(data).sort((a, b) => parseInt(b) - parseInt(a)); // Descending years
+    const years = Object.keys(data).sort((a, b) => parseInt(b) - parseInt(a));
     const months = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'

@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# The Qode Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio Management Application ASSIGNMENT.
 
-Currently, two official plugins are available:
+## 🎯 The Challenge
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Goal: build a React application for a portfolio management company that serves two distinct purposes:
+1.  **A Home Page**: To display a curated collection of blogs.
+2.  **A Portfolio Page**: A data-heavy dashboard showcasing trading returns, equity curves, and drawdown charts.
 
-## React Compiler
+Constraints:
+-   Use a provided Excel sheet as the single source of truth for data.
+-   Replicate a specific UI design (referenced from attached images).
+-   Ensure the application is responsive and performant.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ The Approach
 
-## Expanding the ESLint configuration
+To tackle this, I chose a modern, robust stack:
+-   **React 19**: For a component-based, reactive UI.
+-   **Vite**: For lightning-fast development and optimized builds.
+-   **Tailwind CSS**: For rapid, utility-first styling that matches the design specs pixel-perfectly.
+-   **Recharts**: To render the complex financial charts (Equity Curve, Drawdowns) with interactivity.
+-   **Zustand**: For lightweight, manageable global state.
+-   **Lucide React**: For clean, modern iconography.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 The development process followed
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- extracted the data from the excel file with nodejs.
+- transformed the data into usable statistics.
+- setup a routing system with `react-router`.
+- created the UI with `tailwindcss`.
+- created the charts with `recharts`.
+- created the state management with `zustand`.
+- created the icons with `lucide-react`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Visualizing Success
+For the **Portfolio Page**, we built:
+-   **The Equity Curve**: A line chart showing the growth of an investment over time.
+-   **Drawdown Chart**: A visual representation of risk, showing the decline from peaks.
+-   **Monthly Returns Table**: A heatmap-style table (replicating the Excel look) to show performance at a glance.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+For the **Home Page**, we created a clean grid layout to showcase blog posts, ensuring the content is easily digestible.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Optimizations
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Suspense & Lazy Loading**: Implemented for route-based code splitting to reduce initial load time.
+- **Code Splitting**: Automatic and manual chunking to separate vendor code from application logic.
+- **Compression**: Dual-strategy using **Brotli** and **Gzip** for smallest possible asset sizes.
+- **Manual Chunks**: Configured in Vite to bundle heavy libraries (React, Recharts) separately for better caching.
+- **Memoization**: Used `useMemo` for expensive data calculations to prevent unnecessary re-renders.
+- **Minification**: Aggressive production build settings to strip unused code.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🏃‍♂️ How to Run This Story
+
+Want to see it in action?
+
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+
+2.  **Start the Development Server**:
+    ```bash
+    npm run dev
+    ```
+
+3.  **Build for Production** (to see the optimizations):
+    ```bash
+    npm run build
+    ```
+    *Check the `dist` folder to see the `.br` and `.gz` compressed files!*
+
+---

@@ -2,26 +2,24 @@
 
 @theme {
     --font-sans: 'Outfit', sans-serif;
-
     --color-brand-primary: #0f172a;
     --color-brand-secondary: #334155;
     --color-brand-accent: #2563eb;
-
-    --color-bg-main: #f8fafc;
+    --color-bg-main: #ffffff;
     --color-bg-card: #ffffff;
-
-    --color-text-main: #0f172a;
-    --color-text-muted: #64748b;
 }
 
 body {
     font-family: var(--font-sans);
-    @apply bg-slate-50 text-slate-900 antialiased;
+    font-size: 16px;
+    /* Base size as requested */
+    @apply bg-white text-slate-900 antialiased;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar for tables/containers */
 ::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -29,5 +27,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 rounded-full hover:bg-slate-400;
+    @apply bg-slate-200 rounded-full hover:bg-slate-300;
 }

@@ -1,8 +1,7 @@
 import { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import Sidebar from './components/Sidebar';
 
-// Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 
@@ -24,11 +23,6 @@ function App() {
               <Route path="/portfolio" element={<Portfolio />} />
             </Routes>
           </Suspense>
-          <footer className="bg-white border-t border-slate-200 py-8 mt-auto">
-            <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-              &copy; {new Date().getFullYear()} Qode. All rights reserved.
-            </div>
-          </footer>
         </main>
       </div>
     </Router>

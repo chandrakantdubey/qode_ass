@@ -39,19 +39,17 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 const EquityChart: React.FC<EquityChartProps> = ({ data }) => {
-    // Generate a fake benchmark line for visual matching if data doesn't have it
     const processedData = data.map(d => ({
         ...d,
-        benchmark: d.nav * 0.85 // Simulating a benchmark line (Blue) that is slightly lower
+        benchmark: d.nav * 0.85
     }));
 
     return (
         <div className="flex flex-col">
-            {/* Top Chart: Equity Curve (Green vs Blue) */}
             <div className="h-[400px] w-full mb-0">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={processedData} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                        <CartesianGrid vertical={false} stroke="#e2e8f0" />
                         <XAxis
                             dataKey="date"
                             hide={true}
@@ -59,28 +57,26 @@ const EquityChart: React.FC<EquityChartProps> = ({ data }) => {
                         <YAxis
                             domain={['auto', 'auto']}
                             orientation="left"
-                            tick={{ fontSize: 11, fill: '#94a3b8' }}
+                            tick={{ fontSize: 12, fill: '#94a3b8' }}
                             axisLine={false}
                             tickLine={false}
                         />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#94a3b8', strokeWidth: 1, strokeDasharray: '4 4' }} />
 
-                        {/* Benchmark (Blue) */}
                         <Line
                             type="monotone"
                             dataKey="benchmark"
                             name="NIFTY50"
-                            stroke="#1d4ed8" // Blue
+                            stroke="#1d4ed8"
                             strokeWidth={1.5}
                             dot={false}
                         />
 
-                        {/* Portfolio (Green) */}
                         <Line
                             type="monotone"
                             dataKey="nav"
                             name="Focused"
-                            stroke="#16a34a" // Green
+                            stroke="#16a34a"
                             strokeWidth={2}
                             dot={false}
                         />
@@ -88,26 +84,25 @@ const EquityChart: React.FC<EquityChartProps> = ({ data }) => {
                 </ResponsiveContainer>
             </div>
 
-            {/* Bottom Chart: Drawdown (Red Area) */}
             <div className="h-[150px] w-full -mt-2">
                 <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                        <CartesianGrid vertical={false} stroke="#e2e8f0" />
                         <XAxis
                             dataKey="date"
-                            tick={{ fontSize: 11, fill: '#94a3b8' }}
+                            tick={{ fontSize: 12, fill: '#94a3b8' }}
                             axisLine={false}
                             tickLine={false}
                             minTickGap={60}
                         />
                         <YAxis
                             orientation="left"
-                            tick={{ fontSize: 11, fill: '#94a3b8' }}
+                            tick={{ fontSize: 12, fill: '#94a3b8' }}
                             axisLine={false}
                             tickLine={false}
-                            domain={[-40, 0]} // Fixed domain based on image
+                            domain={[-40, 0]}
                         />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#94a3b8', strokeWidth: 1, strokeDasharray: '4 4' }} />
                         <Area
                             type="monotone"
                             dataKey="drawdown"

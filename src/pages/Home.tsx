@@ -47,60 +47,54 @@ const Home = () => {
     ];
 
     return (
-        <div className="bg-white min-h-screen pb-20 pt-8 px-10">
-            <div className="max-w-6xl mx-auto">
-                <h1 className="text-3xl font-bold text-slate-900 mb-8">Home</h1>
+        <div className="bg-gray-100 min-h-screen pb-20 pt-10 px-12">
+            <div className="max-w-[1200px] mx-auto">
+                <h1 className="text-[28px] font-bold text-slate-900 mb-10">Home</h1>
 
-                {/* Top Actions Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                    {/* Card 1 */}
-                    <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="font-semibold text-slate-900">Get started</h3>
-                            <ExternalLink className="h-4 w-4 text-slate-400" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 group cursor-pointer">
+                        <div className="flex justify-between items-start mb-3">
+                            <h3 className="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Get started</h3>
+                            <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-500" />
                         </div>
-                        <p className="text-sm text-slate-500">
+                        <p className="text-[13px] leading-relaxed text-slate-500">
                             Read our getting started guide to get the most out of your Capitalmind subscription.
                         </p>
                     </div>
 
-                    {/* Card 2 */}
-                    <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="font-semibold text-slate-900">Community</h3>
-                            <ExternalLink className="h-4 w-4 text-slate-400" />
+                    <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 group cursor-pointer">
+                        <div className="flex justify-between items-start mb-3">
+                            <h3 className="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Community</h3>
+                            <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-500" />
                         </div>
-                        <p className="text-sm text-slate-500">
+                        <p className="text-[13px] leading-relaxed text-slate-500">
                             Join the conversation on our exclusive community on Slack for Capitalmind Premium subscribers
                         </p>
                     </div>
 
-                    {/* Card 3 */}
-                    <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="font-semibold text-slate-900">Visit website</h3>
-                            <ExternalLink className="h-4 w-4 text-slate-400" />
+                    <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 group cursor-pointer">
+                        <div className="flex justify-between items-start mb-3">
+                            <h3 className="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Visit website</h3>
+                            <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-500" />
                         </div>
-                        <p className="text-sm text-slate-500">
+                        <p className="text-[13px] leading-relaxed text-slate-500">
                             Keep up with our latest content on our website
                         </p>
                     </div>
                 </div>
-
-                {/* Latest Posts */}
                 <div>
-                    <h2 className="text-lg font-bold text-slate-900 mb-6">Latest Posts</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                    <h2 className="text-lg font-bold text-slate-900 mb-8">Latest Posts</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
                         {posts.map((post) => (
-                            <div key={post.id} className="flex flex-col items-start">
-                                <span className="text-xs text-slate-400 mb-2">{post.date}</span>
-                                <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug hover:text-green-700 cursor-pointer">
+                            <div key={post.id} className="flex flex-col items-start group">
+                                <span className="text-xs font-medium text-slate-400 mb-2">{post.date}</span>
+                                <h3 className="text-[17px] font-bold text-slate-900 mb-3 leading-snug group-hover:text-blue-600 cursor-pointer transition-colors">
                                     {post.title}
                                 </h3>
-                                <p className="text-slate-500 text-sm leading-relaxed mb-3">
+                                <p className="text-slate-500 text-[14px] leading-relaxed mb-3 line-clamp-3">
                                     {post.excerpt}
                                 </p>
-                                <button className="text-sm font-medium text-green-600 hover:text-green-700">
+                                <button className="text-[13px] font-medium text-green-600 hover:text-green-700 transition-colors">
                                     Read full post
                                 </button>
                             </div>
