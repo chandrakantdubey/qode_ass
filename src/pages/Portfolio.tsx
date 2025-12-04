@@ -58,8 +58,8 @@ const Portfolio = () => {
     ];
 
     return (
-        <div className="bg-gray-100 min-h-screen">
-            <div className="max-w-[1400px] mx-auto bg-white px-8 py-20 min-h-screen">
+        <div className="bg-gray-100 min-h-screen overflow-x-hidden">
+            <div className="max-w-[1400px] mx-auto bg-white px-4 md:px-8 py-20 min-h-screen">
                 <div className="mb-12">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-[18px] font-normal text-slate-900 tracking-tight">Trailing Returns</h2>
@@ -67,8 +67,8 @@ const Portfolio = () => {
                             <Download className="h-4 w-4" />
                         </button>
                     </div>
-                    <div className="rounded-sm overflow-hidden">
-                        <table className="w-full text-right border-collapse">
+                    <div className="rounded-sm overflow-x-auto">
+                        <table className="w-full text-right border-collapse min-w-[800px]">
                             <thead className="bg-[#fafafa] border-b border-slate-100">
                                 <tr className='border-b border-slate-300'>
                                     {columns.map((col) => (
@@ -141,8 +141,10 @@ const Portfolio = () => {
                         </div>
                     </div>
 
-                    <div className={`transition-opacity duration-300 ${isPending ? 'opacity-60' : 'opacity-100'}`}>
-                        <EquityChart data={displayData} />
+                    <div className={`transition-opacity duration-300 ${isPending ? 'opacity-60' : 'opacity-100'} overflow-x-auto`}>
+                        <div className="min-w-[600px]">
+                            <EquityChart data={displayData} />
+                        </div>
                     </div>
                 </div>
             </div>

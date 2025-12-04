@@ -47,7 +47,7 @@ const Home = () => {
     ];
 
     return (
-        <div className="bg-gray-100 min-h-screen pb-20 pt-10 px-12">
+        <div className="bg-gray-100 min-h-screen pb-20 pt-10 px-4 md:px-12 overflow-x-hidden">
             <div className="max-w-[1200px] mx-auto">
                 <h1 className="text-[28px] font-bold text-slate-900 mb-10">Home</h1>
 
